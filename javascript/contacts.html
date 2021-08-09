@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+      .container {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        border: 5px solid red;
+      }
+      .searchItem{
+          font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="h1"><h1>contactlist</h1></div>
+      <div><input class='searchItem' type="text" placeholder="search items..." /></div>
+      <ul>
+          <div>
+            <li class='collection-header'><h5>A</h5></li>
+            <li class='collection-list'><a href="#">anand</a></li>
+            <li class='collection-list'><a href="#">amar</a></li>
+            <li class='collection-list'><a href="#">arun</a></li>
+            <li class='collection-list'><a href="#">akash</a></li>
+          </div>
+          <div>
+            <li class='collection-header'><h5>B</h5></li>
+            <li class='collection-list'><a href="#">bhanu</a></li>
+            <li class='collection-list'><a href="#">bhadra</a></li>
+            <li class='collection-list'><a href="#">bobby</a></li>
+            <li class='collection-list'><a href="#">biscuit</a></li>
+          </div>
+          <div>
+            <li class='collection-header'><h5>C</h5></li>
+            <li class='collection-list'><a href="#">cat</a></li>
+            <li class='collection-list'><a href="#">card</a></li>
+            <li class='collection-list'><a href="#">code</a></li>
+            <li class='collection-list'><a href="#">capital</a></li>
+          </div>
+        </div>
+        
+      </ul>
+    </div>
+    <script>
+        let elements=[];
+        let searchItem=document.querySelector(".searchItem");
+        searchItem.addEventListener("keyup",onKeyUp);
+    let li=document.querySelectorAll(".collection-list");
+    
+    function onKeyUp(){
+        elements=document.querySelectorAll("a");
+        for(let i=0;i<elements.length;i++){
+            if(elements[i].innerText.toUpperCase().indexOf(searchItem.value.toUpperCase())!==-1){
+           li[i].style.display="";
+            }
+            else{
+                li[i].style.display="none";
+            }
+        }
+
+        }
+    </script>
+  </body>
+</html>

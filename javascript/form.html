@@ -1,0 +1,111 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-login {
+        padding: 16px;
+        border: 2px solid rgb(163, 39, 39);
+        border-radius: 8px;
+      }
+      .form-row{
+          margin: 8px auto;
+      }
+      .form-btn{
+          width:100%
+      }
+      section{
+            border: 2px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form class="form-login">
+
+      <div class="form-row">
+          <label for="username">Username:</label>
+        <input type="text" id=username class="form-field username" />
+      </div>
+      <div class="form-row">
+          <label for="password">Password:</label>
+        <input type="password" id=password class="form-field password" />
+      </div>
+      <div class="form-row">
+        <input type="submit" class="form-btn submit" />
+    </div>
+    </form>
+    </section>
+    <script>
+      const API_CLIENT={
+        doLogin(user){
+          console.log("user==>",user)
+        }
+      };
+      const body=document.querySelector("body");
+      const section=document.querySelector("section");
+      const form=document.querySelector(".form-login");
+      const btn=document.querySelector(".form-btn.submit");
+       const userEle=document.querySelector(".username");
+      const userPass=document.querySelector(".password");
+
+
+      
+
+
+    //  const onSubmitbody =(e)=>{
+  //  console.log("onsubmitbody===>",4);
+  //     }
+  //     const onSubmitsection =(e)=>{
+  //  console.log("onsubmitsection===>",3);
+  //     }
+
+  //     const onSubmitform =(e)=>{
+  //  console.log("onsubmitform===>",2);
+  //     }
+  const onChange=(e)=>{
+    if(/^[a-zA-Z0-9]+$/.test(e.target.value)){
+    console.log("onChange==>",e.target.value);
+    }
+    else{
+    alert("no special characters allowed");
+    }
+  };
+      const onSubmit =(e)=>{
+        API_CLIENT.doLogin(
+          {
+            username:username.value,
+            password:password.value
+          }
+        );
+          // console.log("onsubmitbtn===>",1);
+      }; 
+     // body.addEventListener("click",onSubmit);
+   //section.addEventListener("click",onSubmitsection);
+    // form.addEventListener("click",onSubmit);
+      btn.addEventListener("click",onSubmit);
+      form.addEventListener("input",onChange);//benefit of bubbling 
+      // userEle.addEventListener("input",onChange);//event on form will work both userna & passs
+      //   userPass.addEventListener("input",onChange);
+
+    </script>
+    </body>
+  </body>
+</html>

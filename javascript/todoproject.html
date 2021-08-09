@@ -1,0 +1,80 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      body {
+        background: grey;
+      }
+      input {
+        text-align: center;
+        font-size: 20px;
+        width: 50%;
+        margin: 30px;
+      }
+      button {
+        position: relative;
+        right: 35px;
+        font-size: 20px;
+        background: skyblue;
+      }
+      ul {
+        list-style-type: none;
+      }
+      .list {
+        font-size: 20px;
+        color: rgb(235, 208, 135);
+        border: 1px solid black;
+        width: 70%;
+        margin: 5px;
+      }
+      .button {
+        font-size: 15px;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Todolist</h1>
+      <div>
+        <input
+          type="text"
+          class="inputElement"
+          placeholder="add todos..."
+        /><span><button class="addButton">Add</button></span>
+        <ul class="ul"></ul>
+      </div>
+    </div>
+    <script>
+      document.querySelector(".addButton").addEventListener("click", addToDo);
+      document
+        .querySelector(".inputElement")
+        .addEventListener("keydown", function (e) {
+          if (e.keyCode == 13) {
+            addToDo();
+          }
+        });
+      let items = [];
+      let ul = document.querySelector(".ul");
+      function addToDo() {
+        let inputText = document.querySelector(".inputElement").value;
+        if (inputText === "") {
+          alert("please enter something");
+        } else {
+          items.push(inputText);
+          show();
+        }
+      }
+      list;
+      function show() {
+        items.forEach((ele, ind) => {});
+      }
+    </script>
+  </body>
+</html>
